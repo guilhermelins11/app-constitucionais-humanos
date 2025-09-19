@@ -1,6 +1,7 @@
 package br.com.direitos.app_constitucionais_humanos.modules.usuario.usecases;
 import br.com.direitos.app_constitucionais_humanos.modules.usuario.repositories.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import br.com.direitos.app_constitucionais_humanos.modules.usuario.entities.Usuario;
@@ -9,12 +10,12 @@ import br.com.direitos.app_constitucionais_humanos.modules.usuario.entities.Usua
 public class UsuarioUseCase {
 
     private final UsuarioRepository usuarioRepository;
-    @Autowired
-    private UsuarioUseCase usuarioUseCase;
+    private final PasswordEncoder passwordEncoder;
 
-    UsuarioUseCase(UsuarioRepository usuarioRepository) {
+    public UsuarioUseCase (UsuarioRepository usuarioRepository, PasswordEncoder passwordEncoder){
         this.usuarioRepository = usuarioRepository;
-    }
+        this.passwordEncoder = passwordEncoder;
+    };
 
     public Usuario execute(Usuario usuario) {
         this.usuarioRepository

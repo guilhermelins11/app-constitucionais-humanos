@@ -7,12 +7,14 @@ import br.com.direitos.app_constitucionais_humanos.modules.administrador.entitie
 import br.com.direitos.app_constitucionais_humanos.modules.administrador.entities.usecases.CreateAdminUseCase;
 import jakarta.validation.Valid;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 
 @RestController
 @RequestMapping("/admin")
+@PreAuthorize("hasAnyRole('ADMIN')")
 public class AdminController {
 
     private CreateAdminUseCase createAdminUseCase;
