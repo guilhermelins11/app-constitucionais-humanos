@@ -1,0 +1,25 @@
+package br.com.direitos.app_constitucionais_humanos.modules.administrador.controllers;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import br.com.direitos.app_constitucionais_humanos.modules.administrador.entities.Admin;
+import br.com.direitos.app_constitucionais_humanos.modules.administrador.entities.usecases.CreateAdminUseCase;
+import jakarta.validation.Valid;
+
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+
+@RestController
+@RequestMapping("/admin")
+public class AdminController {
+
+    private CreateAdminUseCase createAdminUseCase;
+
+    @PostMapping("/")
+    public Admin create(@Valid @RequestBody Admin admin) {
+        return this.createAdminUseCase.execute(admin);
+    }
+    
+}
