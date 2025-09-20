@@ -2,6 +2,7 @@ package br.com.direitos.app_constitucionais_humanos.modules.administrador.contro
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import br.com.direitos.app_constitucionais_humanos.modules.administrador.entities.Admin;
 import br.com.direitos.app_constitucionais_humanos.modules.administrador.entities.usecases.CreateAdminUseCase;
@@ -18,6 +19,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 public class AdminController {
 
     private CreateAdminUseCase createAdminUseCase;
+
+    @Autowired
+    public AdminController(CreateAdminUseCase createAdminUseCase) {
+        this.createAdminUseCase = createAdminUseCase;
+    }
 
     @PostMapping("/")
     public Admin create(@Valid @RequestBody Admin admin) {

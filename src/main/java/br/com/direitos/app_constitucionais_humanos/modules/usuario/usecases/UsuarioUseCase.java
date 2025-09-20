@@ -1,6 +1,5 @@
 package br.com.direitos.app_constitucionais_humanos.modules.usuario.usecases;
 import br.com.direitos.app_constitucionais_humanos.modules.usuario.repositories.UsuarioRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
