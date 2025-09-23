@@ -8,6 +8,7 @@ import br.com.direitos.app_constitucionais_humanos.modules.administrador.entitie
 import jakarta.validation.Valid;
 
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 @RestController
 @RequestMapping("/admin")
 @PreAuthorize("hasAnyRole('ADMIN')")
+@CrossOrigin(origins = "http://localhost:3000")
 public class AdminController {
 
     private CreateAdminUseCase createAdminUseCase;

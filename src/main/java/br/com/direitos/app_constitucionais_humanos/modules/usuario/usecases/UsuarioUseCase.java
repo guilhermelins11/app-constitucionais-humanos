@@ -1,5 +1,8 @@
 package br.com.direitos.app_constitucionais_humanos.modules.usuario.usecases;
 import br.com.direitos.app_constitucionais_humanos.modules.usuario.repositories.UsuarioRepository;
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -25,6 +28,11 @@ public class UsuarioUseCase {
 
         });
         return this.usuarioRepository.save(usuario);
+    }
+
+    public List<Usuario> findAll() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'findAll'");
     }
 
 }

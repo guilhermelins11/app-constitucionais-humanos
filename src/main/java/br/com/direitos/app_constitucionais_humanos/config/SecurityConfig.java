@@ -30,7 +30,7 @@ public class SecurityConfig {
         return http
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(auth -> auth 
-                .requestMatchers("/usuario").permitAll() 
+                .requestMatchers("/auth/login", "/auth/login/**").permitAll() 
                 .anyRequest().authenticated() 
             ) 
             .userDetailsService(jpaUserDetailsService)
